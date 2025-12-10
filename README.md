@@ -34,6 +34,8 @@ Trước khi cài đặt, hãy đảm bảo máy tính của bạn đã cài đ�
 ### Cách 2: Tải mã nguồn về máy (nếu bạn chưa có)
    Giải nén thư mục dự án.
 
+### Cách cài đặt:
+
 1. **Cài đặt các thư viện phụ thuộc:**
    Mở Terminal tại thư mục gốc của dự án và chạy lệnh:
    ```bash
