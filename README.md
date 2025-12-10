@@ -24,13 +24,14 @@ Trước khi cài đặt, hãy đảm bảo máy tính của bạn đã cài đ�
 
 ## ⚙️ Hướng dẫn cài đặt
 
-- **Cách 1: Clone Repository**
+### Cách 1: Clone Repository
   Mở Terminal và chạy lệnh:
   ```bash
-   npm install
+  git clone https://github.com/HeyKayDi/PDF-Stego-Guard.git
+  cd PDF-Stego-Guard
    ```
   
-- **Cách 2: Tải mã nguồn về máy** (nếu bạn chưa có):
+### Cách 2: Tải mã nguồn về máy (nếu bạn chưa có)
    Giải nén thư mục dự án.
 
 1. **Cài đặt các thư viện phụ thuộc:**
