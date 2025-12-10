@@ -43,11 +43,11 @@ Trước khi cài đặt, hãy đảm bảo máy tính của bạn đã cài đ�
    ```
 
 2. **Cấu hình biến môi trường (Environment Variables):**
-   - Tạo một file tên là `.env` tại thư mục gốc (ngang hàng với `package.json`).
-   - Mở file `.env` và dán nội dung sau vào:
-     ```env
-     API_KEY=AIzaSy... (Dán mã API Key của bạn vào đây)
-     ```
+    **Lưu ý:** Không được chia sẻ các thông tin của file `.env` ra bên ngoài.
+   - Tìm file `.env.example` ở thư mục gốc.
+   - **Copy và đổi tên** file đó thành `.env`.
+   - Mở file `.env` và điền các thông tin cần thiết.
+   **Lưu ý:** Không được chia sẻ các thông tin của file `.env` ra bên ngoài.
 
    > **Cách lấy API Key:**
    > 1. Truy cập [Google AI Studio](https://aistudio.google.com/app/apikey).
