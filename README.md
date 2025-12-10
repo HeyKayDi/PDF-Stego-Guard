@@ -24,16 +24,22 @@ Trước khi cài đặt, hãy đảm bảo máy tính của bạn đã cài đ�
 
 ## ⚙️ Hướng dẫn cài đặt
 
-1. **Tải mã nguồn về máy** (nếu bạn chưa có):
+- **Cách 1: Clone Repository**
+  Mở Terminal và chạy lệnh:
+  ```bash
+   npm install
+   ```
+  
+- **Cách 2: Tải mã nguồn về máy** (nếu bạn chưa có):
    Giải nén thư mục dự án.
 
-2. **Cài đặt các thư viện phụ thuộc:**
+1. **Cài đặt các thư viện phụ thuộc:**
    Mở Terminal tại thư mục gốc của dự án và chạy lệnh:
    ```bash
    npm install
    ```
 
-3. **Cấu hình biến môi trường (Environment Variables):**
+2. **Cấu hình biến môi trường (Environment Variables):**
    - Tạo một file tên là `.env` tại thư mục gốc (ngang hàng với `package.json`).
    - Mở file `.env` và dán nội dung sau vào:
      ```env
