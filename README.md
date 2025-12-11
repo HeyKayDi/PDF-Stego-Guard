@@ -12,7 +12,7 @@ Dự án tích hợp **Google Gemini AI** để tự động phân tích và tó
   - Tóm tắt nội dung file PDF gốc.
   - Phân tích nội dung file ẩn sau khi trích xuất.
 - **Bảo mật Client-side:** Mọi quá trình xử lý diễn ra ngay trên trình duyệt, file không được gửi lên máy chủ lưu trữ trung gian.
-- **Giao diện hiện đại:** Thiết kế với React, Tailwind CSS và hiệu ứng mượt mà.
+- **Giao diện hiện đại:** Thiết kế với `React`, `Tailwind CSS`.
 
 ## 🛠️ Yêu cầu hệ thống
 
