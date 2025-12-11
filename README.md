@@ -29,6 +29,7 @@ Trước khi cài đặt, hãy đảm bảo máy tính của bạn đã cài đ�
   ```bash
   git clone https://github.com/HeyKayDi/PDF-Stego-Guard.git
   cd PDF-Stego-Guard
+  cd source
    ```
   
 ### Cách 2: Tải mã nguồn về máy (nếu bạn chưa có)
