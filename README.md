@@ -1,12 +1,12 @@
 # PDF Stego Guard 🔒
 
-**PDF Stego Guard** là một ứng dụng web bảo mật sử dụng kỹ thuật **Steganography** (giấu tin) để nhúng các tệp tin bí mật vào bên trong cấu trúc của một file PDF bình thường mà không làm thay đổi nội dung hiển thị của file đó. 
+**PDF Stego Guard** là một ứng dụng web bảo mật sử dụng kỹ thuật **Steganography** (*giấu tin*) để nhúng các tệp tin bí mật vào bên trong cấu trúc của một file PDF bình thường mà không làm thay đổi nội dung hiển thị của file đó. 
 
 Dự án tích hợp **Google Gemini AI** để tự động phân tích và tóm tắt nội dung của văn bản, mang lại trải nghiệm thông minh hơn cho người dùng.
 
 ## 🚀 Tính năng chính
 
-- **Ẩn dữ liệu (Steganography):** Nhúng bất kỳ loại file nào (ảnh, text, zip...) vào trong file PDF.
+- **Ẩn dữ liệu (*Steganography*):** Nhúng bất kỳ loại file nào (*ảnh, text, zip...*) vào trong file PDF.
 - **Trích xuất dữ liệu:** Tách file ẩn ra khỏi PDF đã được nhúng.
 - **AI Analysis:** Sử dụng Gemini 2.5 Flash để:
   - Tóm tắt nội dung file PDF gốc.
@@ -18,9 +18,9 @@ Dự án tích hợp **Google Gemini AI** để tự động phân tích và tó
 
 Trước khi cài đặt, hãy đảm bảo máy tính của bạn đã cài đặt:
 
-- **Node.js** (Phiên bản 18 trở lên khuyến nghị).
-- Trình quản lý gói **npm** (đi kèm với Node.js).
-- Một **API Key** từ Google AI Studio (Gemini API).
+- `Node.js` (*Phiên bản 18 trở lên khuyến nghị*).
+- Trình quản lý gói **npm** (*đi kèm với `Node.js`*).
+- Một `API Key` từ Google AI Studio (*Gemini API*).
 
 ## ⚙️ Hướng dẫn cài đặt
 
@@ -32,41 +32,40 @@ Trước khi cài đặt, hãy đảm bảo máy tính của bạn đã cài đ�
   cd source
    ```
   
-### Cách 2: Tải mã nguồn về máy (nếu bạn chưa có)
+### Cách 2: Tải mã nguồn về máy (*nếu bạn chưa có*)
    Giải nén thư mục dự án.
 
 ### Cách cài đặt:
 
-1. **Cài đặt các thư viện phụ thuộc:**
-   Mở Terminal tại thư mục gốc của dự án và chạy lệnh:
+1. **Cài đặt các thư viện phụ thuộc:** (*Mở Terminal tại thư mục gốc của dự án và chạy lệnh dưới*)
    ```bash
    npm install
    ```
 
-2. **Cấu hình biến môi trường (Environment Variables):**
+2. **Cấu hình biến môi trường (*Environment Variables*):**
    - Tìm file `.env.example` ở thư mục gốc.
    - **Copy và đổi tên** file đó thành `.env`.
    - Mở file `.env` và điền các thông tin cần thiết. (***Lưu ý:** Không được chia sẻ các thông tin của file `.env` ra bên ngoài.*)
 
    > **Cách lấy API Key:**
    > 1. Truy cập [Google AI Studio](https://aistudio.google.com/app/apikey).
-   > 2. Đăng nhập Google và chọn "Create API key".
+   > 2. Đăng nhập Google và chọn "Create API key" hoặc chọn API key có sẵn của chính bạn nếu đã có.
    > 3. Copy chuỗi ký tự bắt đầu bằng `AIza...` và dán vào file `.env`.
 
 ## ▶️ Cách chạy dự án
 
-1. **Khởi chạy môi trường phát triển (Development Server):**
+1. **Khởi chạy môi trường phát triển (*Development Server*):**
    Tại Terminal, chạy lệnh:
    ```bash
    npm run dev
    ```
 
 2. **Mở trình duyệt:**
-   Sau khi chạy lệnh trên, Terminal sẽ hiện ra một đường dẫn (thường là `http://localhost:5173/`). Giữ phím `Ctrl` và click vào link đó để mở ứng dụng.
+   Sau khi chạy lệnh trên, Terminal sẽ hiện ra một đường dẫn (*thường là `http://localhost:5173/`*). Giữ phím `Ctrl` và click vào link đó để mở ứng dụng.
 
 ## 📦 Build cho Production
 
-Nếu bạn muốn đóng gói ứng dụng để đưa lên host (ví dụ Vercel, Netlify):
+Nếu bạn muốn đóng gói ứng dụng để đưa lên host (*ví dụ `Vercel`, `Netlify`*):
 
 ```bash
 npm run build
@@ -79,7 +78,7 @@ File sau khi build sẽ nằm trong thư mục `dist`.
 - `src/App.tsx`: Layout chính và điều hướng.
 - `src/services/pdfUtils.ts`: Logic cốt lõi để xử lý file PDF (nhị phân, nối file).
 - `src/services/geminiService.ts`: Kết nối với Google Gemini API.
-- `src/components/`: Các thành phần giao diện (Dropzone, Button, Tab...).
+- `src/components/`: Các thành phần giao diện (*Dropzone, Button, Tab...*).
 
 ## 🛡️ Cơ chế hoạt động
 
