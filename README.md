@@ -54,14 +54,14 @@ Trước khi cài đặt, hãy đảm bảo máy tính của bạn đã cài đ�
 
 ## ▶️ Cách chạy dự án
 
-1. **Khởi chạy môi trường phát triển (*Development Server*):**
-   Tại Terminal, chạy lệnh:
+1. **Khởi chạy môi trường phát triển (*Development Server*):** Tại Terminal, chạy lệnh sau
    ```bash
    npm run dev
    ```
 
 2. **Mở trình duyệt:**
-   Sau khi chạy lệnh trên, Terminal sẽ hiện ra một đường dẫn (*thường là `http://localhost:5173/`*). Giữ phím `Ctrl` và click vào link đó để mở ứng dụng.
+   - Sau khi chạy lệnh trên, Terminal sẽ hiện ra một đường dẫn (*thường là `http://localhost:5173/`*).
+   - Giữ phím `Ctrl` và click vào link đó để mở ứng dụng.
 
 ## 📦 Build cho Production
 
@@ -82,7 +82,7 @@ File sau khi build sẽ nằm trong thư mục `dist`.
 
 ## 🛡️ Cơ chế hoạt động
 
-Ứng dụng lợi dụng đặc điểm của định dạng PDF: Các trình đọc PDF thường chỉ đọc đến dấu hiệu kết thúc file (`%%EOF`). Dữ liệu được nối vào phía sau dấu hiệu này sẽ bị bỏ qua khi hiển thị nhưng vẫn tồn tại vật lý trong file.
+Ứng dụng lợi dụng đặc điểm của định dạng PDF: Các trình đọc PDF thường chỉ đọc đến dấu hiệu kết thúc file `%%EOF`. Dữ liệu được nối vào phía sau dấu hiệu này sẽ bị bỏ qua khi hiển thị nhưng vẫn tồn tại vật lý trong file.
 
 ---
 **Lưu ý:** Dự án này được xây dựng cho mục đích giáo dục và nghiên cứu về an toàn thông tin.
