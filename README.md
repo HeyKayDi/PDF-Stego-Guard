@@ -76,13 +76,15 @@ File sau khi build sẽ nằm trong thư mục `dist`.
 
 - `src/index.tsx`: Điểm khởi chạy của React.
 - `src/App.tsx`: Layout chính và điều hướng.
-- `src/services/pdfUtils.ts`: Logic cốt lõi để xử lý file PDF (nhị phân, nối file).
+- `src/services/pdfUtils.ts`: Logic cốt lõi để xử lý file PDF (*nhị phân, nối file*).
 - `src/services/geminiService.ts`: Kết nối với Google Gemini API.
 - `src/components/`: Các thành phần giao diện (*Dropzone, Button, Tab...*).
 
 ## 🛡️ Cơ chế hoạt động
 
-Ứng dụng lợi dụng đặc điểm của định dạng PDF: Các trình đọc PDF thường chỉ đọc đến dấu hiệu kết thúc file `%%EOF`. Dữ liệu được nối vào phía sau dấu hiệu này sẽ bị bỏ qua khi hiển thị nhưng vẫn tồn tại vật lý trong file.
+Ứng dụng lợi dụng đặc điểm của định dạng PDF: 
+- Các trình đọc PDF thường chỉ đọc đến dấu hiệu kết thúc file `%%EOF`.
+- Dữ liệu được nối vào phía sau dấu hiệu này sẽ bị bỏ qua khi hiển thị nhưng vẫn tồn tại vật lý trong file.
 
 ---
 **Lưu ý:** Dự án này được xây dựng cho mục đích giáo dục và nghiên cứu về an toàn thông tin.
