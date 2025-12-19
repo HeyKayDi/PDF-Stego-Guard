@@ -33,7 +33,7 @@ Trước khi cài đặt, hãy đảm bảo máy tính của bạn đã cài đ�
    ```
   
 ### Cách 2: Tải mã nguồn về máy (*nếu bạn chưa có*)
-   Giải nén thư mục dự án.
+   Giải nén thư mục dự án và di chuyển đến thư mục `source`.
 
 ### Cách cài đặt:
 
