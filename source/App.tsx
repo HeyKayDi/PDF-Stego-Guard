@@ -26,9 +26,9 @@ const App: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl font-bold text-slate-800 mb-2">Ẩn dữ liệu</h2>
-                <p className="text-slate-500 mb-4">Nhúng tệp tin bí mật vào trong một file PDF bình thường. File PDF vẫn xem được nhưng chứa "kho báu" bên trong.</p>
-                <span className="text-blue-600 font-medium group-hover:translate-x-1 inline-block transition-transform">Bắt đầu ngay &rarr;</span>
+                <h2 className="text-2xl font-bold text-slate-800 mb-2">Hide Data</h2>
+                <p className="text-slate-500 mb-4">Embed the secret file inside a normal PDF file. The PDF file will still be viewable, but it will contain the "treasure" inside.</p>
+                <span className="text-blue-600 font-medium group-hover:translate-x-1 inline-block transition-transform">Start Now &rarr;</span>
               </div>
             </div>
 
@@ -43,9 +43,9 @@ const App: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl font-bold text-slate-800 mb-2">Trích xuất</h2>
-                <p className="text-slate-500 mb-4">Tải lên file PDF đã qua xử lý để lấy lại tệp tin bí mật. Hệ thống tự động phát hiện và tách dữ liệu.</p>
-                <span className="text-emerald-600 font-medium group-hover:translate-x-1 inline-block transition-transform">Bắt đầu ngay &rarr;</span>
+                <h2 className="text-2xl font-bold text-slate-800 mb-2">Extract Data</h2>
+                <p className="text-slate-500 mb-4">Upload a processed PDF file to retrieve the hidden file. The system automatically detects and separates the data.</p>
+                <span className="text-emerald-600 font-medium group-hover:translate-x-1 inline-block transition-transform">Start Now &rarr;</span>
               </div>
             </div>
           </div>
@@ -99,10 +99,10 @@ const App: React.FC = () => {
         {mode === AppMode.HOME && (
           <div className="mb-12 text-center max-w-2xl mx-auto">
              <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-               Bảo mật dữ liệu bằng kỹ thuật Steganography
+               Secure Data with Steganography
              </h2>
              <p className="text-lg text-slate-600">
-               Công nghệ ẩn giấu dữ liệu nhạy cảm vào bên trong cấu trúc file PDF mà không làm thay đổi nội dung hiển thị của file gốc.
+               A technology that hides sensitive data inside the structure of a PDF file without altering the original content.
              </p>
           </div>
         )}
@@ -114,16 +114,16 @@ const App: React.FC = () => {
           <div className="mt-20 pt-10 border-t border-slate-200">
              <div className="grid md:grid-cols-3 gap-8 text-sm">
                 <div>
-                   <h3 className="font-semibold text-slate-900 mb-2">Nguyên lý hoạt động</h3>
-                   <p className="text-slate-500">File PDF có cấu trúc đánh dấu kết thúc bằng `%%EOF`. Dữ liệu mới được nối vào sau dấu hiệu này sẽ bị các trình đọc PDF bỏ qua, giữ nguyên hiển thị gốc.</p>
+                   <h3 className="font-semibold text-slate-900 mb-2">Operation Principle</h3>
+                   <p className="text-slate-500">PDF files have a structure that marks the end with `%%EOF`. New data appended after this marker is ignored by PDF readers, preserving the original display.</p>
                 </div>
                 <div>
                    <h3 className="font-semibold text-slate-900 mb-2">AI Integration</h3>
-                   <p className="text-slate-500">Sử dụng Google Gemini 2.5 Flash để phân tích và tóm tắt nội dung của cả file PDF gốc lẫn file dữ liệu được trích xuất.</p>
+                   <p className="text-slate-500">Uses Google Gemini 2.5 Flash to analyze and summarize the content of both the original PDF file and the extracted data file.</p>
                 </div>
                 <div>
-                   <h3 className="font-semibold text-slate-900 mb-2">Bảo mật</h3>
-                   <p className="text-slate-500">Mọi xử lý đều diễn ra tại trình duyệt (Client-side). File của bạn không bao giờ được gửi lên máy chủ lưu trữ trung gian.</p>
+                   <h3 className="font-semibold text-slate-900 mb-2">Security</h3>
+                   <p className="text-slate-500">All processing occurs client-side in your browser. Your files are never sent to any intermediate storage servers.</p>
                 </div>
              </div>
           </div>
