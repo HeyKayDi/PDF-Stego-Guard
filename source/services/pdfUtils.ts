@@ -5,7 +5,7 @@ const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
 /**
- * Chuyển đổi file thành Uint8Array
+ * Convert the file to Uint8Array
  */
 export const fileToUint8Array = async (file: File): Promise<Uint8Array> => {
   const buffer = await file.arrayBuffer();
@@ -13,7 +13,7 @@ export const fileToUint8Array = async (file: File): Promise<Uint8Array> => {
 };
 
 /**
- * Ghép nối các mảng byte lại với nhau
+ * Concatenate multiple byte arrays
  */
 const concatenateBuffers = (buffers: Uint8Array[]): Uint8Array => {
   let totalLength = 0;
@@ -30,7 +30,7 @@ const concatenateBuffers = (buffers: Uint8Array[]): Uint8Array => {
 };
 
 /**
- * Tìm vị trí của chuỗi byte con trong chuỗi byte cha
+ * Find the position of the substring within the parent string
  */
 const findSequence = (source: Uint8Array, sequence: Uint8Array): number => {
   if (sequence.length === 0) return -1;
@@ -50,8 +50,8 @@ const findSequence = (source: Uint8Array, sequence: Uint8Array): number => {
 };
 
 /**
- * Ẩn file dữ liệu vào cuối file PDF
- * Cấu trúc: [PDF Gốc] + [Magic Start] + [JSON Metadata] + [Meta End] + [Hidden File Data]
+ * Hide data files at the end of the PDF file
+ * Structure: [Original PDF] + [Magic Start] + [JSON Metadata] + [Meta End] + [Hidden File Data]
  */
 export const embedFileInPdf = async (
   pdfFile: File,
@@ -60,7 +60,7 @@ export const embedFileInPdf = async (
   const pdfBytes = await fileToUint8Array(pdfFile);
   const hiddenBytes = await fileToUint8Array(hiddenFile);
 
-  // Tạo metadata
+  // Create metadata
   const metadata: HiddenMetadata = {
     fileName: hiddenFile.name,
     fileSize: hiddenFile.size,
@@ -72,9 +72,9 @@ export const embedFileInPdf = async (
   const metadataBytes = encoder.encode(JSON.stringify(metadata));
   const metaEndBytes = encoder.encode(STEGO_META_END);
 
-  // Kiểm tra xem PDF đã có dữ liệu ẩn chưa (để tránh lồng nhau quá nhiều hoặc lỗi)
+  // Check if the PDF contains any hidden data (to avoid excessive nesting or errors)
   if (findSequence(pdfBytes, magicStartBytes) !== -1) {
-    throw new Error("File PDF này dường như đã chứa dữ liệu ẩn.");
+    throw new Error("This PDF file appears to contain hidden data.");
   }
 
   const finalBytes = concatenateBuffers([
@@ -85,12 +85,12 @@ export const embedFileInPdf = async (
     hiddenBytes,
   ]);
 
-  // Ép kiểu as BlobPart để tránh lỗi strict typing của TS với Uint8Array
+  // Casting to BlobPart style avoids TS's strict typing error with Uint8Array
   return new Blob([finalBytes as BlobPart], { type: "application/pdf" });
 };
 
 /**
- * Trích xuất file ẩn từ PDF
+ * Extract hidden files from PDF
  */
 export const extractFileFromPdf = async (
   pdfFile: File
@@ -99,20 +99,20 @@ export const extractFileFromPdf = async (
   const magicStartBytes = encoder.encode(STEGO_MAGIC_START);
   const metaEndBytes = encoder.encode(STEGO_META_END);
 
-  // 1. Tìm điểm bắt đầu
+  // 1. Find the start position
   const startIndex = findSequence(pdfBytes, magicStartBytes);
   if (startIndex === -1) {
-    throw new Error("Không tìm thấy dữ liệu ẩn nào trong file PDF này.");
+    throw new Error("No hidden data found in this PDF file.");
   }
 
-  // 2. Tìm điểm kết thúc metadata (bắt đầu từ sau magic start)
+  // 2. Find the end position of metadata (starting from after magic start)
   const metaStartPos = startIndex + magicStartBytes.length;
-  // Cắt mảng từ vị trí metaStartPos để tìm metaEnd
+  // Slice the array from metaStartPos to find metaEnd
   const remainingBytes = pdfBytes.slice(metaStartPos);
   const metaEndIndexRelative = findSequence(remainingBytes, metaEndBytes);
   
   if (metaEndIndexRelative === -1) {
-    throw new Error("Cấu trúc dữ liệu ẩn bị hỏng (không thấy metadata end).");
+    throw new Error("The hidden data structure is corrupted (end metadata is not visible).");
   }
 
   const metaEndPos = metaStartPos + metaEndIndexRelative;
@@ -125,15 +125,15 @@ export const extractFileFromPdf = async (
   try {
     metadata = JSON.parse(metadataStr);
   } catch (e) {
-    throw new Error("Metadata bị hỏng, không thể đọc thông tin file.");
+    throw new Error("Metadata is corrupted, cannot read file information.");
   }
 
-  // 4. Lấy dữ liệu file
+  // 4. Get file data
   const fileDataStart = metaEndPos + metaEndBytes.length;
   const fileData = pdfBytes.slice(fileDataStart);
 
   if (fileData.length !== metadata.fileSize) {
-    console.warn("Kích thước file trích xuất không khớp với metadata, file có thể bị lỗi.");
+    console.warn("The size of the extracted file does not match the metadata; the file may be corrupted.");
   }
 
   return {
@@ -143,7 +143,7 @@ export const extractFileFromPdf = async (
 };
 
 /**
- * Tải file xuống trình duyệt
+ * Download the file to your browser
  */
 export const downloadBlob = (blob: Blob, fileName: string) => {
   const url = URL.createObjectURL(blob);
