@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Khai báo thủ công process để TypeScript không báo lỗi khi chưa cài @types/node
+// Manually declare the process so that TypeScript doesn't report errors when @types/node isn't installed.
 declare const process: {
   env: {
     API_KEY?: string;
@@ -11,7 +11,7 @@ declare const process: {
 const getClient = () => {
     const apiKey = process.env.API_KEY;
     if (!apiKey) {
-        throw new Error("API Key không tìm thấy. Vui lòng kiểm tra cấu hình environment.");
+        throw new Error("API Key not found. Please check your environment configuration.");
     }
     return new GoogleGenAI({ apiKey });
 }
@@ -35,24 +35,24 @@ export const analyzePdfContent = async (pdfFile: File): Promise<string> => {
                         }
                     },
                     {
-                        text: "Hãy tóm tắt ngắn gọn nội dung chính của tài liệu PDF này trong khoảng 3-4 câu. Trả lời bằng tiếng Việt."
+                        text: "Briefly summarize the main points of this PDF document in about 3-4 sentences. Please answer in Vietnamese."
                     }
                 ]
             }
         });
 
-        return response.text || "Không thể phân tích nội dung.";
+        return response.text || "Content cannot be analyzed.";
     } catch (error) {
         console.error("Gemini Analysis Error:", error);
-        return "Lỗi khi kết nối với AI để phân tích file. Đảm bảo file không quá lớn và API Key hợp lệ.";
+        return "Error connecting to AI for file analysis. Ensure the file is not too large and the API key is valid.";
     }
 };
 
 export const analyzeHiddenFileContent = async (fileBytes: Uint8Array, mimeType: string, fileName: string): Promise<string> => {
     try {
-        // Chỉ hỗ trợ phân tích ảnh và text cho demo này để tiết kiệm token và đảm bảo độ chính xác
+        // This demo only supports image and text analysis to conserve tokens and ensure accuracy.
         if (!mimeType.startsWith('image/') && !mimeType.startsWith('text/') && mimeType !== 'application/pdf') {
-            return `File "${fileName}" (${mimeType}) đã được trích xuất thành công. Hiện tại AI chỉ hỗ trợ xem trước nội dung Text, PDF hoặc Hình ảnh.`;
+            return `File "${fileName}" (${mimeType}) has been successfully extracted. Currently, AI only supports previewing text, PDF, or image content.`;
         }
 
         const client = getClient();
@@ -71,16 +71,16 @@ export const analyzeHiddenFileContent = async (fileBytes: Uint8Array, mimeType: 
                         }
                     },
                     {
-                        text: `Đây là một file được trích xuất từ kỹ thuật ẩn giấu thông tin. Hãy mô tả nội dung file này một cách ngắn gọn. Nếu là code, hãy giải thích code làm gì. Trả lời bằng tiếng Việt.`
+                        text: `This is a file extracted from a steganography technique. Please describe the content of this file briefly. If it's code, explain what the code does. Answer in Vietnamese.`
                     }
                 ]
             }
         });
 
-        return response.text || "Không thể phân tích nội dung file trích xuất.";
+        return response.text || "Cannot analyze the content of the extracted file.";
 
     } catch (error) {
         console.error("Gemini Hidden Analysis Error:", error);
-        return "Đã trích xuất file nhưng lỗi khi AI cố gắng đọc nội dung.";
+        return "File has been extracted but an error occurred while AI attempted to read its content.";
     }
 }
