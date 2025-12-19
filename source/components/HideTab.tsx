@@ -62,10 +62,10 @@ const HideTab: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Step 1: Carrier PDF */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-slate-700">1. Chọn file PDF chứa (Carrier)</h3>
+            <h3 className="font-semibold text-slate-700">1. Select the PDF file containing (Carrier)</h3>
             <FileDropzone 
-              label="Kéo thả file PDF vào đây"
-              subLabel="Hỗ trợ định dạng .pdf"
+              label="Drag and drop the PDF file here"
+              subLabel="Supports .pdf format"
               accept="application/pdf"
               currentFile={carrierPdf}
               onFileSelect={handleCarrierSelect}
@@ -79,10 +79,10 @@ const HideTab: React.FC = () => {
                      <svg className="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                      </svg>
-                     <span className="font-semibold text-sm text-slate-700">AI Phân tích nội dung PDF</span>
+                     <span className="font-semibold text-sm text-slate-700">AI PDF Content Analysis</span>
                   </div>
                   {analyzing ? (
-                    <div className="text-sm text-slate-500 animate-pulse">Đang đọc nội dung file...</div>
+                    <div className="text-sm text-slate-500 animate-pulse">Reading file content...</div>
                   ) : (
                     <p className="text-sm text-slate-600 leading-relaxed italic">"{aiSummary}"</p>
                   )}
@@ -92,10 +92,10 @@ const HideTab: React.FC = () => {
 
           {/* Step 2: Secret File */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-slate-700">2. Chọn file cần ẩn (Secret Payload)</h3>
+            <h3 className="font-semibold text-slate-700">2. Select the file to hide (Secret Payload)</h3>
             <FileDropzone 
-              label="Kéo thả file bí mật vào đây"
-              subLabel="Bất kỳ định dạng nào (Ảnh, Text, Zip...)"
+              label="Drag and drop the secret file here"
+              subLabel="Any format (Image, Text, Zip...)"
               currentFile={secretFile}
               onFileSelect={setSecretFile}
               onClear={() => setSecretFile(null)}
@@ -104,7 +104,7 @@ const HideTab: React.FC = () => {
                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                </svg>
-               <p>File bí mật sẽ được nhúng vào cấu trúc file PDF. Người dùng bình thường mở PDF vẫn xem được nội dung PDF gốc như bình thường.</p>
+               <p>Secret file will be embedded into the PDF file structure. Normal users opening the PDF will still see the original PDF content as normal.</p>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ const HideTab: React.FC = () => {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                Đã tải xuống file PDF chứa dữ liệu ẩn!
+                File downloaded successfully!
              </p>
           )}
           
@@ -126,14 +126,14 @@ const HideTab: React.FC = () => {
             onClick={handleReset}
             disabled={status === 'processing'}
           >
-            Làm mới
+            Reset
           </Button>
           <Button 
             onClick={processHide}
             disabled={!carrierPdf || !secretFile}
             isLoading={status === 'processing'}
           >
-            Thực hiện Ẩn & Tải xuống
+            Hide & Download
           </Button>
         </div>
       </div>
