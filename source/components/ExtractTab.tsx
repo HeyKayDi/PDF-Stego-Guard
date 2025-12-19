@@ -50,13 +50,13 @@ const ExtractTab: React.FC = () => {
     } catch (err: any) {
       console.error(err);
       setStatus('error');
-      setErrorMsg(err.message || "Không tìm thấy dữ liệu ẩn hoặc file bị lỗi.");
+      setErrorMsg(err.message || "No hidden data or corrupted file found.");
     }
   };
 
   const handleDownloadExtracted = () => {
     if (result) {
-      // Ép kiểu as BlobPart để sửa lỗi TypeScript
+      // Casting as a BlobPart fixes TypeScript errors
       const blob = new Blob([result.fileData as BlobPart], { type: result.metadata.mimeType });
       downloadBlob(blob, result.metadata.fileName);
     }
@@ -67,14 +67,14 @@ const ExtractTab: React.FC = () => {
       <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
         <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
           <span className="bg-emerald-100 text-emerald-600 p-2 rounded-lg text-xl">🔓</span>
-          Trích xuất dữ liệu
+          Extract Data
         </h2>
 
         <div className="max-w-xl mx-auto space-y-6">
           <div className="space-y-2">
-             <label className="block text-sm font-medium text-slate-700">Tải lên file PDF cần giải mã</label>
+             <label className="block text-sm font-medium text-slate-700">Upload PDF file to decode</label>
              <FileDropzone 
-               label="Kéo thả file PDF có chứa dữ liệu ẩn"
+               label="Drag and drop the PDF file containing hidden data"
                accept="application/pdf"
                currentFile={stegoPdf}
                onFileSelect={setStegoPdf}
@@ -89,7 +89,7 @@ const ExtractTab: React.FC = () => {
                isLoading={status === 'processing'}
                className="w-full md:w-auto min-w-[200px]"
              >
-               {status === 'success' ? 'Đã tìm thấy file!' : 'Quét và Trích xuất'}
+               {status === 'success' ? 'File found!' : 'Scan and Extract'}
              </Button>
           </div>
           
