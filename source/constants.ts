@@ -1,6 +1,6 @@
-// Dấu hiệu nhận biết bắt đầu vùng dữ liệu ẩn
+// Identifying the beginning of the hidden data region
 export const STEGO_MAGIC_START = "|||PDF_STEGO_START|||";
-// Dấu hiệu kết thúc vùng metadata JSON
+// JSON metadata area end marker
 export const STEGO_META_END = "|||META_END|||";
 
 export const MAX_FILE_SIZE_MB = 20;
@@ -11,3 +11,4 @@ export const COLORS = {
   success: "emerald-600",
   error: "red-600"
 };
+
