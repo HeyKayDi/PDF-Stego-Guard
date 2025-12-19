@@ -75,19 +75,19 @@ const App: React.FC = () => {
               onClick={() => setMode(AppMode.HOME)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${mode === AppMode.HOME ? 'bg-slate-100 text-slate-900' : 'text-slate-500 hover:text-slate-900'}`}
             >
-              Trang chủ
+              Home
             </button>
             <button 
               onClick={() => setMode(AppMode.HIDE)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${mode === AppMode.HIDE ? 'bg-blue-50 text-blue-700' : 'text-slate-500 hover:text-slate-900'}`}
             >
-              Ẩn file
+              Hide File
             </button>
             <button 
               onClick={() => setMode(AppMode.EXTRACT)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${mode === AppMode.EXTRACT ? 'bg-emerald-50 text-emerald-700' : 'text-slate-500 hover:text-slate-900'}`}
             >
-              Trích xuất
+              Extract Data
             </button>
           </nav>
         </div>
